@@ -1,0 +1,33 @@
+= Example
+
+== Build User Image
+
+The license server may require that you run {registerassistant} with a valid user name.
+To do this, we create a user image that overrides the image user.
+
+[source,sh]
+----
+export LICENSE_USER=...
+docker build --build-arg USER=$LICENSE_USER -t registerassistant .
+----
+
+== Run the User Image
+
+[source,sh]
+----
+export MGLS_LICENSE_FILE=...
+export HOSTNAME="a hostname accepted by the license server"
+export DOMAIN="your org domain (e.g. example.com)"
+docker run -it -v $PWD:/src -w /src -u $(id -u):$(id -g) \
+    -e MGLS_LICENSE_FILE \
+    --hostname $HOSTNAME \
+    --dns-search $DOMAIN \
+    registerassistant -version
+----
+
+[listing]
+.Output
+----
+Register Assistant 2022.1 (Build 1)
+Built on 12 Dec 2021 21:45
+----

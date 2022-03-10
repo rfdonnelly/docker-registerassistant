@@ -1,0 +1,41 @@
+:version: 2020.1
+:hds: HDL Designer Series {version}
+:registerassistant: Register Assistant {version}
+
+= {registerassistant}
+
+This provides a method for creating a Docker image for {registerassistant}.
+
+== Overview
+
+. Install {hds} on host machine
+. Tar-gzip the {registerassistant} installation
+. Copy and extract the tar-gzip into the Docker image
+
+== Install
+
+Download and run the {hds} installer.
+
+[source,sh,subs="attributes+"]
+----
+chmod +x HDS_{version}_ixl.exe
+sudo ./HDS_{version}.aol
+----
+
+Install to `/opt/mentor/hds/{version}`:
+
+== Package
+
+Create a tar-gzip of {registerassistant}.
+
+[source,sh,subs="attributes+"]
+----
+tar czf registerassistant-{version}.tar.gz /opt/mentor/hds/{version}/registerassistant
+----
+
+== Build
+
+[source,sh,subs="attributes+"]
+----
+docker build -t registerassistant:{version} .
+----

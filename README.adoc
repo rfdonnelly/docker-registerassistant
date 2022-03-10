@@ -1,0 +1,28 @@
+= Docker Images for Register Assistant
+// Settings
+:doctype: book
+:chapter-label:
+:idprefix:
+:idseparator: -
+:sectanchors:
+:sectnums:
+:sectnumlevels: 4
+:toclevels: 4
+:source-highlighter: pygments
+:toc: left
+:icons: font
+:imagesdir: images
+:xrefstyle: full
+:title-page:
+:stem:
+
+This repository provides Docker images for Mentor/Siemens Register Assistant.
+
+== Usage
+
+. Build the base image.
+See `$version/README.adoc` (e.g. link:2022.1/README.adoc[])
+. Push to registry
+. Build the user image.
+See link:example/README.adoc[]
+. Run the user image
